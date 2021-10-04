@@ -1,0 +1,19 @@
+{
+    "usersData": [
+    {
+      "accessLevel": 0,
+      "nameAndSurname": "jacek",
+      "email": "gg@gg.pl",
+      "phone": 231254151,
+      "street": "Migdałowa 21",
+      "postCode": 62800,
+      "city": "kalisz",
+      "items": [
+      ],
+      "login": "user",
+      "password": "user",
+      "orders": []
+    }
+
+  ]
+}
