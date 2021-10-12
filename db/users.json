@@ -1,19 +1,16 @@
 {
     "usersData": [
     {
-      "accessLevel": 0,
+      "accessLevel": 1,
       "nameAndSurname": "jacek",
       "email": "g@g.pl",
       "phone": 231254151,
-      "street": "Migdałowa 21",
-      "postCode": 62800,
-      "city": "kalisz",
-      "items": [
-      ],
+      "adress": "Migdałowa 21",
+      "postCodeCity": "62800 kalisz",
+      "items": [],
       "login": "user",
       "password": "user",
       "orders": []
     }
-
   ]
 }
