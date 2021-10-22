@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
   return (
@@ -9,6 +10,7 @@ const ErrorPage = () => {
       <p className="">
         Błąd podczas przesyłania danych. Nie powinieneś się znaleźć na tej
         stronie.
+        <Link to="/"> Wróć na stronę główną</Link>
       </p>
     </div>
   );
