@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../store/StoreProvider";
 import { Col, Row, Toast } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const ToastContainer = () => {
   const { newToast, cartStatus } = useContext(StoreContext);
@@ -37,6 +38,15 @@ const ToastContainer = () => {
       setShowA(true);
     } else {
       toggleShowA(false);
+    }
+  };
+
+  const toastLink = () => {
+    const { destination } = newToast;
+    if (destination === "cart") {
+      return <Link to="/shopping-cart">Przejdź do sklepu</Link>;
+    } else if (destination === "fav") {
+      return <Link to="/favourites">Przejdź do listy ulubionych</Link>;
     }
   };
 
@@ -77,7 +87,9 @@ const ToastContainer = () => {
               <i className="fa fa-check-circle flex-grow-1"></i>
               <small>{time}</small>
             </Toast.Header>
-            <Toast.Body>{toastMsg()}</Toast.Body>
+            <Toast.Body>
+              {toastMsg()} {toastLink()}
+            </Toast.Body>
           </Toast>
         </Col>
       </Row>
