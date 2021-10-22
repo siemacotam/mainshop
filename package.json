@@ -1,61 +1,49 @@
 {
-  "name": "spa-github-pages",
-  "version": "6.1.0",
+  "homepage": "https://siemacotam.github.io/mainshop",
+  "name": "mainshopp",
+  "version": "0.1.0",
   "private": true,
-  "description": "Single Page Apps for GitHub Pages",
-  "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --disable-host-check --open",
-    "build": "webpack -p"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rafgraph/spa-github-pages.git"
-  },
-  "author": "Rafael Pedicini <rafael@rafgraph.dev>",
-  "license": "MIT",
   "dependencies": {
-    "@radix-ui/react-icons": "^1.0.3",
-    "@stitches/react": "^0.1.9",
-    "prop-types": "^15.7.2",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "bootstrap": "^4.6.0",
+    "gh-pages": "^3.2.3",
+    "google-maps-react": "^2.0.6",
+    "jquery": "^3.6.0",
+    "popper.js": "^1.16.1",
     "react": "^17.0.2",
+    "react-bootstrap": "^1.6.4",
     "react-dom": "^17.0.2",
-    "react-interactive": "^1.1.0",
-    "react-router-dom": "^5.2.0",
-    "use-dark-mode": "^2.3.1"
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "4.0.3",
+    "sass": "^1.42.1",
+    "web-vitals": "^1.1.2"
   },
-  "devDependencies": {
-    "@types/react": "^17.0.4",
-    "@types/react-dom": "^17.0.3",
-    "@types/react-router-dom": "^5.1.7",
-    "@typescript-eslint/eslint-plugin": "^4.22.0",
-    "@typescript-eslint/parser": "^4.22.0",
-    "eslint": "^7.25.0",
-    "eslint-config-react-app": "^6.0.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.4",
-    "prettier": "^2.2.1",
-    "source-map-loader": "^1.1.3",
-    "terser-webpack-plugin": "^4.2.3",
-    "ts-loader": "^8.2.0",
-    "typescript": "^4.2.4",
-    "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+  "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
-  "prettier": {
-    "trailingComma": "all",
-    "singleQuote": true
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*": "prettier --write --ignore-unknown"
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
