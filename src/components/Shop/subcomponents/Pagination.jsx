@@ -12,9 +12,6 @@ const Pagination = ({ itemsArray }) => {
   useEffect(() => {
     const pagesCount = howManyPages;
     setNumberOfPages(pagesCount);
-  }, [category]);
-
-  useEffect(() => {
     setActivePage(1);
   }, [category]);
 
@@ -34,7 +31,7 @@ const Pagination = ({ itemsArray }) => {
     );
   };
 
-  const fn = () => {
+  const numbOfPages = () => {
     let as = [];
     const pagesCount = howManyPages;
     if (itemsArray.length > 0) {
@@ -82,7 +79,7 @@ const Pagination = ({ itemsArray }) => {
   return (
     <ul className="pagination">
       {prevButton()}
-      {fn()}
+      {numbOfPages()}
       {nextButton()}
     </ul>
   );

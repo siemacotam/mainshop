@@ -41,7 +41,7 @@ const ShowCompanyInfo = () => {
   ];
 
   const showCompanyInfo = () => {
-    return companyInfo.map((i, index) => {
+    return companyInfo.map((item, index) => {
       return (
         <div className="row justify-content-center align-items-center">
           <div
@@ -51,11 +51,13 @@ const ShowCompanyInfo = () => {
                 : "col-md-6 d-flex justify-content-center align-items-center p-2 order-lg-2"
             }
           >
-            <img src={i.image} alt="" className="rounded" />
+            <img src={item.image} alt="" className="rounded" />
           </div>
           <div className="col-md-6 p-5">
-            <h4 className="font-weight-bold border-bottom pb-2">{i.title}</h4>
-            <p className="text-special">{i.text}</p>
+            <h4 className="font-weight-bold border-bottom pb-2">
+              {item.title}
+            </h4>
+            <p className="text-special">{item.text}</p>
           </div>
         </div>
       );

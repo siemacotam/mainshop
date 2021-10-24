@@ -8,6 +8,11 @@ const MainNav = () => {
   const { cartStatus, setCategory, isLoggedIn, setGuest, setInCheckout } =
     useContext(StoreContext);
 
+  const scrollEl = (cat) => {
+    setCategory(cat);
+    // document.getElementById("panel").scrollIntoView();
+  };
+
   const shopLi = (
     <li className="nav-item dropdown">
       <NavLink
@@ -31,7 +36,7 @@ const MainNav = () => {
           data-target=".navbar-collapse.show"
           to="/shop"
           onClick={() => {
-            setCategory("all");
+            scrollEl("all");
           }}
         >
           Wszystkie produkty
@@ -43,7 +48,7 @@ const MainNav = () => {
           data-target=".navbar-collapse.show"
           to="/shop/mens-clothing/all"
           onClick={() => {
-            setCategory(`men's clothing`);
+            scrollEl(`men's clothing`);
           }}
         >
           Moda męska
@@ -54,7 +59,7 @@ const MainNav = () => {
           data-target=".navbar-collapse.show"
           to="/shop/jewelery/all"
           onClick={() => {
-            setCategory("jewelery");
+            scrollEl("jewelery");
           }}
         >
           Biżuteria
@@ -65,7 +70,7 @@ const MainNav = () => {
           data-target=".navbar-collapse.show"
           to="/shop/electronics/all"
           onClick={() => {
-            setCategory("electronics");
+            scrollEl("electronics");
           }}
         >
           Elektronika
@@ -76,7 +81,7 @@ const MainNav = () => {
           data-target=".navbar-collapse.show"
           to="/shop/womens-clothing/all"
           onClick={() => {
-            setCategory(`women's clothing`);
+            scrollEl(`women's clothing`);
           }}
         >
           Moda damska

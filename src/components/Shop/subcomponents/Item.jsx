@@ -47,7 +47,6 @@ const Item = ({ searchedItems, short }) => {
       <div className="col-md-4 d-flex">
         <div className="card mb-4">
           <img src={kindOfImg(kind)} alt={title} className="card-img-top" />
-          {/* <img src={image} alt={title} className="card-img-top" /> */}
           <div className="card-body">
             <h3 className="card-title mb-0">
               {title.slice(0, 60)}
@@ -69,7 +68,7 @@ const Item = ({ searchedItems, short }) => {
             <div className="d-flex justify-content-around">
               {FavouritesButton(id)}
               <button
-                className="btn btn-light px-4"
+                className="btn btn-light px-4 border"
                 onClick={() => {
                   history.push({
                     pathname: "/shop/product",
@@ -92,8 +91,8 @@ const Item = ({ searchedItems, short }) => {
               >
                 <i className="fa fa-search"></i>
               </button>
-              {AddToCartButton(id)}
             </div>
+            <div className="mt-2">{AddToCartButton(id)}</div>
           </div>
         </div>
       </div>

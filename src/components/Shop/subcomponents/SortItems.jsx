@@ -104,12 +104,7 @@ const SortItems = () => {
   return (
     <Accordion>
       <Card className="mt-4">
-        <Accordion.Toggle
-          as={Card.Header}
-          eventKey="0"
-          className="card-header"
-          // className="list-group-item list-group-item-action"
-        >
+        <Accordion.Toggle as={Card.Header} eventKey="0" className="card-header">
           <a>Sortuj</a>
         </Accordion.Toggle>
 

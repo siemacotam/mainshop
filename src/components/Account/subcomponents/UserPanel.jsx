@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { StoreContext } from "../../../store/StoreProvider";
 import Mail from "../../Contact/subcomponents/Mail";
 import UserInfo from "./UserInfo";
+import UserPanelButtons from "./UserPanelButtons";
 
 const UserPanel = () => {
   const { activeUser, setActiveUser, setIsLoggedIn, orders } =
@@ -46,6 +47,11 @@ const UserPanel = () => {
     }
   };
 
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setActiveUser("");
+  };
+
   const userOrdersElements = () => {
     return userOrders.map((i, index) => {
       return (
@@ -81,55 +87,17 @@ const UserPanel = () => {
     </div>
   );
 
-  const userDataButton = (
-    <div className="col-sm-3 p-2">
-      <button className="btn btn-primary  w-100 h-100" onClick={handleShowData}>
-        Dane użytkownika
-      </button>
-    </div>
-  );
-  const ordersDataButton = (
-    <div className="col-sm-3 p-2">
-      <button
-        onClick={handleShowUserOrders}
-        className="btn btn-primary  w-100 h-100"
-      >
-        Twoje zamówienia ({userOrders.length})
-      </button>
-    </div>
-  );
-  const contactButton = (
-    <div className="col-sm-3 p-2">
-      <button
-        onClick={handleShowContact}
-        className="btn btn-primary  w-100 h-100"
-      >
-        Napisz do nas
-      </button>
-    </div>
-  );
-  const logoutButton = (
-    <div className="col-sm-3 p-2">
-      <button
-        className="btn btn-primary w-100  h-100"
-        onClick={() => {
-          setIsLoggedIn(false);
-          setActiveUser("");
-        }}
-      >
-        Wyloguj
-      </button>
-    </div>
-  );
-
   return (
     <div style={{ minHeight: "50vh" }}>
       <h3>Witaj, {activeUser.nameAndSurname}</h3>
       <div className="mt-4 row">
-        {userDataButton}
-        {ordersDataButton}
-        {contactButton}
-        {logoutButton}
+        {UserPanelButtons(handleShowData, "Dane użytkownika")}
+        {UserPanelButtons(
+          handleShowUserOrders,
+          `Twoje zamówienia (${userOrders.length})`
+        )}
+        {UserPanelButtons(handleShowContact, "Napisz do nas")}
+        {UserPanelButtons(handleLogout, "Wyloguj")}
       </div>
       {showUserData && <UserInfo />}
       {showUserOrders && orderEl}

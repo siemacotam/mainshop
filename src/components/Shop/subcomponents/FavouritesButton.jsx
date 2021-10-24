@@ -36,7 +36,9 @@ const FavouritesButton = (id) => {
   return (
     <button
       className={
-        isAlreadyFavourite.length ? "btn border px-4" : "btn btn-light px-4"
+        isAlreadyFavourite.length
+          ? "btn border px-4"
+          : "btn btn-light px-4 border"
       }
       data-value={id}
       onClick={handleClick}

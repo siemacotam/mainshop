@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../../store/StoreProvider";
+import UserInfoInputs from "./UserInfoInputs";
 
 const UserInfo = () => {
   const [editMode, setEditMode] = useState(false);
@@ -7,7 +8,7 @@ const UserInfo = () => {
   const [allValues, setAllValues] = useState({
     userNameAndSurname: "",
     userAdress: "",
-    userPostcodeCity: "",
+    userPostCodeCity: "",
     userPhone: "",
   });
 
@@ -17,7 +18,7 @@ const UserInfo = () => {
       setAllValues({
         userNameAndSurname: nameAndSurname,
         userAdress: adress,
-        userPostcodeCity: postCodeCity,
+        userPostCodeCity: postCodeCity,
         userPhone: phone,
       });
     }
@@ -26,7 +27,7 @@ const UserInfo = () => {
       setAllValues({
         userNameAndSurname: nameAndSurname,
         userAdress: adress,
-        userPostcodeCity: postCodeCity,
+        userPostCodeCity: postCodeCity,
         userPhone: phone,
       });
     }
@@ -40,25 +41,25 @@ const UserInfo = () => {
       return { ...prevValues, [e.target.name]: e.target.value };
     });
   };
-  const { userNameAndSurname, userAdress, userPostcodeCity, userPhone } =
+  const { userNameAndSurname, userAdress, userPostCodeCity, userPhone } =
     allValues;
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (userNameAndSurname && userAdress && userPostcodeCity && userPhone) {
+    if (userNameAndSurname && userAdress && userPostCodeCity && userPhone) {
       setEditMode(!editMode);
       if (userData) {
         let editedUser = activeUser;
         editedUser.nameAndSurname = userNameAndSurname;
         editedUser.adress = userAdress;
-        editedUser.postCodeCity = userPostcodeCity;
+        editedUser.postCodeCity = userPostCodeCity;
         editedUser.phone = userPhone;
       }
       if (guestInfoData) {
         let editedUser = guestInfoData;
         editedUser.nameAndSurname = userNameAndSurname;
         editedUser.adress = userAdress;
-        editedUser.postCodeCity = userPostcodeCity;
+        editedUser.postCodeCity = userPostCodeCity;
         editedUser.phone = userPhone;
       }
     } else {
@@ -66,58 +67,16 @@ const UserInfo = () => {
     }
   };
 
-  const nameInput = (
-    <input
-      onChange={changeHandler}
-      type="text"
-      disabled={!editMode}
-      value={userNameAndSurname}
-      name="userNameAndSurname"
-      className="form-control"
-    />
-  );
-
-  const adressInput = (
-    <input
-      onChange={changeHandler}
-      type="text"
-      disabled={!editMode}
-      value={userAdress}
-      name="userAdress"
-      className="form-control"
-    />
-  );
-  const postCodeInput = (
-    <input
-      onChange={changeHandler}
-      type="text"
-      disabled={!editMode}
-      value={userPostcodeCity}
-      name="userPostcodeCity"
-      className="form-control"
-    />
-  );
-  const phoneInput = (
-    <input
-      onChange={changeHandler}
-      type="text"
-      disabled={!editMode}
-      value={userPhone}
-      name="userPhone"
-      className="form-control"
-    />
-  );
-
   return (
     <form className="d-flex flex-column" onSubmit={handleSubmit}>
-      <small className="text-muted py-1">Imię i nazwisko</small>
-      {nameInput}
-      <small className="text-muted py-1">Adres</small>
-      {adressInput}
-      <small className="text-muted py-1">Miejscowość</small>
-      {postCodeInput}
-      <small className="text-muted py-1">Numer telefonu</small>
-      {phoneInput}
+      {UserInfoInputs(
+        changeHandler,
+        editMode,
+        userNameAndSurname,
+        userAdress,
+        userPostCodeCity,
+        userPhone
+      )}
       {editMode === false && (
         <button
           type="button"

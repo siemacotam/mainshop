@@ -1,6 +1,6 @@
 import React from "react";
 
-import Mapa from "./Mapa";
+import Location from "./Location";
 
 const Info = () => {
   return (
@@ -10,7 +10,7 @@ const Info = () => {
         <p className="text-center font-weight-bold">ul. Migdałowa </p>
         <p className="text-center font-weight-bold">62-800 Kalisz</p>
         <div style={{ position: "relative", height: "400px" }}>
-          <Mapa />
+          <Location />
         </div>
       </div>
     </div>

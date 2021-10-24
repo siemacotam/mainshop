@@ -5,6 +5,7 @@ import Header from "../Header/Header";
 import CompanyIdea from "./subcomponents/CompanyIdea";
 import HomeHeader from "./subcomponents/HomeHeader";
 import CompanyProducts from "./subcomponents/CompanyProducts";
+import RandomItems from "../ShoppingCart/RandomItems";
 
 const Home = () => {
   useEffect(() => {

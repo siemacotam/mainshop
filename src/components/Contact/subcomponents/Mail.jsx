@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Prompt } from "react-router";
 import { StoreContext } from "../../../store/StoreProvider";
 import { validateEmail } from "../../../utils/validateEmail";
+import MailForm from "./MailForm";
 
 const Mail = ({ inAccount }) => {
   const { activeUser } = useContext(StoreContext);
@@ -63,49 +64,6 @@ const Mail = ({ inAccount }) => {
     }
   };
 
-  const mailForm = (
-    <form
-      className="d-flex justify-content-center flex-column"
-      onSubmit={handleSubmit}
-    >
-      <div className="form-group mx-5">
-        <label for="formGroupExampleInput">Imię</label>
-        <input
-          value={name}
-          onChange={handleNameChange}
-          type="text"
-          className="form-control"
-          placeholder="Wpisz swoje imię"
-        />
-      </div>
-      <div className="form-group mx-5">
-        <label for="formGroupExampleInput2">Email</label>
-        <input
-          value={email}
-          disabled={inAccount}
-          onChange={handleMailChange}
-          type="email"
-          className="form-control"
-          placeholder="wpisz swój adres email"
-        />
-      </div>
-      <div className="form-group mx-5">
-        <textarea
-          value={note}
-          onChange={handleNoteChange}
-          rows="5"
-          cols="33"
-          type="text"
-          className="form-control"
-          placeholder="Wpisz treść wiadomości"
-        />
-      </div>
-      <button className="mx-5 btn btn-primary" type="submit">
-        Wyślij
-      </button>
-    </form>
-  );
-
   const sentMessage = (
     <div className="text-center">
       <small className="text-success">Wiadomość wysłana!</small>{" "}
@@ -121,7 +79,16 @@ const Mail = ({ inAccount }) => {
   return (
     <div className="container ">
       <p className="text-center">Napisz do nas !</p>
-      {mailForm}
+      {MailForm(
+        handleSubmit,
+        name,
+        handleNameChange,
+        email,
+        inAccount,
+        handleMailChange,
+        note,
+        handleNoteChange
+      )}
       <Prompt
         when={!isEmpty}
         message="Masz wpisaną wiadomość w formularzu? czy na pewno chcesz opuścic stronę ?"
