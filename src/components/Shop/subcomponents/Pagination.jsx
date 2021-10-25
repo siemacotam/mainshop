@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../../store/StoreProvider";
 
 import { itemsPerPage } from "../Shop";
@@ -13,6 +13,7 @@ const Pagination = ({ itemsArray }) => {
     const pagesCount = howManyPages;
     setNumberOfPages(pagesCount);
     setActivePage(1);
+    console.log(pagesCount, howManyPages, numberOfPages);
   }, [category]);
 
   const pageEl = (numb) => {
@@ -32,55 +33,51 @@ const Pagination = ({ itemsArray }) => {
   };
 
   const numbOfPages = () => {
-    let as = [];
+    let pagesArray = [];
     const pagesCount = howManyPages;
     if (itemsArray.length > 0) {
       for (let i = 0; i < pagesCount; i++) {
-        as.push(pageEl(i + 1));
+        pagesArray.push(pageEl(i + 1));
       }
     }
-    return as.map((i) => i);
+    return pagesArray.map((i) => i);
   };
 
-  const prevButton = () => {
-    return (
-      <li className="page-item">
-        <button
-          className="page-link"
-          disabled={activePage === 1}
-          onClick={() => {
-            document.getElementById("okruszki").scrollIntoView();
-            setActivePage((prev) => prev - 1);
-          }}
-        >
-          Previous
-        </button>
-      </li>
-    );
-  };
+  const prevButton = (
+    <li className="page-item">
+      <button
+        className="page-link"
+        disabled={activePage === 1}
+        onClick={() => {
+          document.getElementById("okruszki").scrollIntoView();
+          setActivePage((prev) => prev - 1);
+        }}
+      >
+        Previous
+      </button>
+    </li>
+  );
 
-  const nextButton = () => {
-    return (
-      <li className="page-item">
-        <button
-          className="page-link"
-          disabled={activePage === howManyPages}
-          onClick={() => {
-            document.getElementById("okruszki").scrollIntoView();
-            setActivePage((prev) => prev + 1);
-          }}
-        >
-          Next
-        </button>
-      </li>
-    );
-  };
+  const nextButton = (
+    <li className="page-item">
+      <button
+        className="page-link"
+        disabled={activePage === howManyPages}
+        onClick={() => {
+          document.getElementById("okruszki").scrollIntoView();
+          setActivePage((prev) => prev + 1);
+        }}
+      >
+        Next
+      </button>
+    </li>
+  );
 
   return (
     <ul className="pagination">
-      {prevButton()}
+      {prevButton}
       {numbOfPages()}
-      {nextButton()}
+      {nextButton}
     </ul>
   );
 };

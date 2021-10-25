@@ -1,4 +1,3 @@
-import React from "react";
 import electronics from "../../../images/electronics.jpg";
 import jewelery from "../../../images/jewelery.jpg";
 import mensclothing from "../../../images/mensclothing.jpg";

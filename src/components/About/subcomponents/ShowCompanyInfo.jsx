@@ -1,4 +1,3 @@
-import React from "react";
 import towar from "../../../images/towar.jpg";
 import research from "../../../images/research.jpg";
 import trendy from "../../../images/trendy.jpg";
@@ -43,7 +42,10 @@ const ShowCompanyInfo = () => {
   const showCompanyInfo = () => {
     return companyInfo.map((item, index) => {
       return (
-        <div className="row justify-content-center align-items-center">
+        <div
+          key={item.image}
+          className="row justify-content-center align-items-center"
+        >
           <div
             className={
               index % 2 === 0

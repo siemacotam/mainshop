@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 import { StoreContext } from "../../store/StoreProvider";
 import ItemInfo from "./subcomponents/ItemInfo";

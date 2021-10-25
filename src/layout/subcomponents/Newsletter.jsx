@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { validateEmail } from "../../utils/validateEmail";
 
 const Newsletter = () => {

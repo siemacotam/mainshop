@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { useHistory } from "react-router";
 import { StoreContext } from "../../../store/StoreProvider";
 import { validateEmail } from "../../../utils/validateEmail";

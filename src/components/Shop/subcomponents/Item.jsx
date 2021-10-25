@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { StoreContext } from "../../../store/StoreProvider";
 import { itemsPerPage } from "../Shop";
 import AddToCartButton from "./AddToCartButton";
 import FavouritesButton from "./FavouritesButton";
-import electronics from "../../../images/electronics.jpg";
-import jewelery from "../../../images/jewelery.jpg";
-import mensclothing from "../../../images/mensclothing.jpg";
-import womensclothing from "../../../images/womensclothing.jpg";
 import { useHistory } from "react-router";
+import { kindOfImg } from "utils/kindOfImage";
 
 const Item = ({ searchedItems, short }) => {
   const { items, category, activePage, sortItems } = useContext(StoreContext);
@@ -20,18 +17,6 @@ const Item = ({ searchedItems, short }) => {
       spróbować później
     </p>
   );
-
-  const kindOfImg = (kind) => {
-    if (kind === "electronics") {
-      return electronics;
-    } else if (kind === "jewelery") {
-      return jewelery;
-    } else if (kind === `men's clothing`) {
-      return mensclothing;
-    } else if (kind === `women's clothing`) {
-      return womensclothing;
-    }
-  };
 
   const itemToShow = (
     title,

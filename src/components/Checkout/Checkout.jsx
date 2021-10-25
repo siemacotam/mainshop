@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { StoreContext } from "../../store/StoreProvider";
 import ErrorPage from "../ErrorPage/ErrorPage";

@@ -1,39 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { kindOfImg } from "utils/kindOfImage";
 import { StoreContext } from "../../store/StoreProvider";
 import RandomItems from "./RandomItems";
-import electronics from "../../images/electronics.jpg";
-import jewelery from "../../images/jewelery.jpg";
-import mensclothing from "../../images/mensclothing.jpg";
-import womensclothing from "../../images/womensclothing.jpg";
-import WebMap from "../Shop/subcomponents/WebMap";
+import ShoppingCartSummary from "./ShoppingCartSummary";
 
 const ShoppingCart = (ordered) => {
-  const {
-    cartStatus,
-    setCartStatus,
-    isLoggedIn,
-    setGuest,
-    setInCheckout,
-    setTotalPrice,
-    totalPrice,
-  } = useContext(StoreContext);
+  const { cartStatus, setCartStatus, setTotalPrice } = useContext(StoreContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const kindOfImg = (kind) => {
-    if (kind === "electronics") {
-      return electronics;
-    } else if (kind === "jewelery") {
-      return jewelery;
-    } else if (kind === `men's clothing`) {
-      return mensclothing;
-    } else if (kind === `women's clothing`) {
-      return womensclothing;
-    }
-  };
 
   const handleRemoveClick = (e) => {
     const itemId = e.target.getAttribute("data-value");
@@ -98,26 +75,6 @@ const ShoppingCart = (ordered) => {
     }
   };
 
-  const summaryPanel = (
-    <div className="col-md-12 border border-dark mx-auto p-4 bg-light">
-      <div className="d-flex align-items-center">
-        <p className="card-title font-weight-bold mb-0 flex-grow-1 p-2">
-          Łączna kwota <span>{totalPrice}</span> $
-        </p>
-        <Link
-          to={isLoggedIn ? "/checkout/order" : "/welcome"}
-          className="btn btn-success"
-          onClick={() => {
-            !isLoggedIn && setGuest(true);
-            setInCheckout(true);
-          }}
-        >
-          Przejdź do dostawy
-        </Link>
-      </div>
-    </div>
-  );
-
   return (
     <div className="container py-3 px-0 mb-3">
       <div className="border bg-light">
@@ -129,7 +86,7 @@ const ShoppingCart = (ordered) => {
           </p>
         </div>
         {cartItems()}
-        {!ordered.ordered && cartStatus.length > 0 && summaryPanel}
+        {!ordered.ordered && cartStatus.length > 0 && <ShoppingCartSummary />}
       </div>
       {!ordered.ordered && <RandomItems />}
     </div>

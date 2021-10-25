@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { StoreContext } from "../../../store/StoreProvider";
 import Mail from "../../Contact/subcomponents/Mail";
 import UserInfo from "./UserInfo";

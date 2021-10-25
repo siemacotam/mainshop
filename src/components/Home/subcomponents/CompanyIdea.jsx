@@ -1,4 +1,3 @@
-import React from "react";
 import luxus from "../../../images/luksus.jpg";
 
 const CompanyIdea = () => {

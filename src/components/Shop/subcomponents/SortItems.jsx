@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { Accordion, Card } from "react-bootstrap";
 import { StoreContext } from "../../../store/StoreProvider";
 
@@ -88,11 +88,14 @@ const SortItems = () => {
   const showVariants = () => {
     return variant.map((i) => {
       return (
-        <div className="list-group-item list-group-item-action d-flex align-items-center">
+        <div
+          key={variant.text}
+          className="list-group-item list-group-item-action d-flex align-items-center"
+        >
           <input
             type="checkbox"
             className="m-2"
-            onClick={i.fn}
+            onChange={i.fn}
             checked={i.value}
           />
           <p className="m-1">{i.text}</p>

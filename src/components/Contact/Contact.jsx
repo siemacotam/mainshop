@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import Info from "./subcomponents/Info";
 import Mail from "./subcomponents/Mail";

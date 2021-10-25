@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { StoreContext } from "../../store/StoreProvider";
 import { Col, Row, Toast } from "react-bootstrap";
 import { Link } from "react-router-dom";
@@ -11,15 +11,13 @@ const ToastContainer = () => {
 
   useEffect(() => {
     showToast();
+    setItemTitle(newToast.name);
   }, [newToast]);
   useEffect(() => {
     const id = setTimeout(() => {
       setShowA(false);
     }, 3000);
     return () => clearTimeout(id);
-  }, [newToast]);
-  useEffect(() => {
-    setItemTitle(newToast.name);
   }, [newToast]);
 
   let today = new Date();

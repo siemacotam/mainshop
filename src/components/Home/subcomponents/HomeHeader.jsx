@@ -1,4 +1,3 @@
-import React from "react";
 import elegant from "../../../images/elegant.jpg";
 
 const HomeHeader = () => {

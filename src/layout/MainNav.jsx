@@ -1,5 +1,4 @@
-import React, { useContext } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { StoreContext } from "../store/StoreProvider";
 import Search from "../components/Search/Search";

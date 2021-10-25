@@ -1,56 +1,14 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Accordion, Card } from "react-bootstrap";
 import { StoreContext } from "../../../store/StoreProvider";
 import SortItems from "./SortItems";
+import { itemListBodies } from "components/constans/itemListBodies";
 
 const ItemsList = () => {
   const { setCategory } = useContext(StoreContext);
-
-  const bodies = [
-    {
-      linkTo: "mens-clothing",
-      category: `men's clothing`,
-      name1: "Najnowsze",
-      arg1: "new",
-      name2: "Bestsellery",
-      arg2: "bestsellers",
-      name3: "Wyprzedaż",
-      arg3: "sale",
-    },
-    {
-      linkTo: "jewelery",
-      category: "jewelery",
-      name1: "Najnowsze",
-      arg1: "new",
-      name2: "Bestsellery",
-      arg2: "bestsellers",
-      name3: "Wyprzedaż",
-      arg3: "sale",
-    },
-    {
-      linkTo: "electronics",
-      category: "electronics",
-      name1: "Najnowsze",
-      arg1: "new",
-      name2: "Bestsellery",
-      arg2: "bestsellers",
-      name3: "Wyprzedaż",
-      arg3: "sale",
-    },
-    {
-      linkTo: "womens-clothing",
-      category: `women's clothing`,
-      name1: "Najnowsze",
-      arg1: "new",
-      name2: "Bestsellery",
-      arg2: "bestsellers",
-      name3: "Wyprzedaż",
-      arg3: "sale",
-    },
-  ];
 
   const cardBody = ({
     linkTo,
@@ -142,7 +100,7 @@ const ItemsList = () => {
           </Accordion.Toggle>
 
           <Accordion.Collapse eventKey="0">
-            {cardBody(bodies[0])}
+            {cardBody(itemListBodies[0])}
           </Accordion.Collapse>
         </Card>
 
@@ -159,7 +117,7 @@ const ItemsList = () => {
           </Accordion.Toggle>
 
           <Accordion.Collapse eventKey="1">
-            {cardBody(bodies[1])}
+            {cardBody(itemListBodies[1])}
           </Accordion.Collapse>
         </Card>
         <Card>
@@ -175,7 +133,7 @@ const ItemsList = () => {
           </Accordion.Toggle>
 
           <Accordion.Collapse eventKey="2">
-            {cardBody(bodies[2])}
+            {cardBody(itemListBodies[2])}
           </Accordion.Collapse>
         </Card>
         <Card>
@@ -191,7 +149,7 @@ const ItemsList = () => {
           </Accordion.Toggle>
 
           <Accordion.Collapse eventKey="3">
-            {cardBody(bodies[3])}
+            {cardBody(itemListBodies[3])}
           </Accordion.Collapse>
         </Card>
       </Accordion>

@@ -1,5 +1,3 @@
-import React from "react";
-
 const BenefitsPanel = () => {
   const benefitsEl = [
     { icon: "fa fa-fighter-jet", text: "Zamawiaj szybciej !" },

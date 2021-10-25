@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ekipa from "../../images/ekipa.jpg";
 import ShowCompanyInfo from "./subcomponents/ShowCompanyInfo";
 

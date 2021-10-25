@@ -14,7 +14,7 @@ const MailForm = (
       onSubmit={handleSubmit}
     >
       <div className="form-group mx-5">
-        <label for="formGroupExampleInput">Imię</label>
+        <label>Imię</label>
         <input
           value={name}
           onChange={handleNameChange}
@@ -24,7 +24,7 @@ const MailForm = (
         />
       </div>
       <div className="form-group mx-5">
-        <label for="formGroupExampleInput2">Email</label>
+        <label>Email</label>
         <input
           value={email}
           disabled={inAccount}

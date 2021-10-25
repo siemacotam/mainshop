@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Prompt } from "react-router";
 import { StoreContext } from "../../../store/StoreProvider";
 import { validateEmail } from "../../../utils/validateEmail";
